@@ -1,0 +1,56 @@
+<launch>
+
+  <!-- This is the format for a comment in HTML --> 
+
+
+  <!-- Launches the TurtleBot's navigation file --> 
+  <include file="$(find turtlebot3_navigation)/launch/turtlebot3_navigation.launch" >
+    <!-- Sets the map to be the map generated in lab 4 --> 
+    <!-- Change “egrs_372” to whatever your username is -->
+    <arg name="map_file" value="/home/egrs372/map.yaml" />
+  </include>
+
+
+
+
+  <!-- creates all the parameters --> 
+  <param name="/home_location/x" value="0" />
+  <param name="/home_location/y" value="0" />
+  <param name="/home_location/theta" value="0" />
+
+  <param name="/pnt_1/x" value="-2" />
+  <param name="/pnt_1/y" value="0.5" />
+  <param name="/pnt_1/theta" value="0" />
+
+  <param name="/pnt_2/x" value="-2" />
+  <param name="/pnt_2/y" value="-0.5" />
+  <param name="/pnt_2/theta" value="90" />
+
+  <param name="/pnt_3/x" value="-1" />
+  <param name="/pnt_3/y" value="-0.75" />
+  <param name="/pnt_3/theta" value="45" />
+
+  <param name="/pnt_4/x" value="0.5" />
+  <param name="/pnt_4/y" value="-1.25" />
+  <param name="/pnt_4/theta" value="-45" />
+
+  <param name="/pnt_5/x" value="1.5" />
+  <param name="/pnt_5/y" value="-1.75" />
+  <param name="/pnt_5/theta" value="0" />
+
+  <param name="/battery_low_level" value="10.0" />
+  <param name="/battery_high_level" value="11.0" />
+  <!-- Launches lab10 code --> 
+  <node pkg="lab10" type="lab10" name="lab10_launch" output="screen">
+  </node>
+
+  <!-- Launches human sim code --> 
+  <node pkg="lab10" type="human_sim" name="human_sim" output="screen">
+  </node>
+
+  <!-- Launches Visual_Updater code --> 
+  <node pkg="lab10" type="Visual_Updater" name="Visual_Updater" output="screen">
+  </node>
+
+</launch>
+
